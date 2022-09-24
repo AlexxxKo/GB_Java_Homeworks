@@ -47,14 +47,14 @@ public class Task01 {
         }
       }
     } else {
-      s = "Нет решений";
+      s = "";
     }
     return s;
   }
 
   static String preprint(int start, int end, int k1, int k2) {
     String s = elems(solve(start, end, k1, k2), start, k1, k2);
-    s = s != "Нет решений" ? start + s + " = " + end : s;
+    s = s.length() != 0 ? start + s + " = " + end : "Нет решений";
     return s;
   }
 
