@@ -53,9 +53,8 @@ public class Task01 {
   }
 
   static String preprint(int start, int end, int k1, int k2) {
-    int[] arr = solve(start, end, k1, k2);
-    String s = elems(arr, start, k1, k2);
-    s = start + s + " = " + end;
+    String s = elems(solve(start, end, k1, k2), start, k1, k2);
+    s = s != "Нет решений" ? start + s + " = " + end : s;
     return s;
   }
 
