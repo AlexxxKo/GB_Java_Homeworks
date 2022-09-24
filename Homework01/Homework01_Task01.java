@@ -12,7 +12,7 @@
 /**
  * App
  */
-public class Task01 {
+public class Homework01_Task01 {
 
   static int[] solve(int start, int end, int k1, int k2) {
     int[] ways = new int[end + 1];
