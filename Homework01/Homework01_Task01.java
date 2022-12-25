@@ -1,64 +1,103 @@
-// На вход некоторому исполнителю подаётся два числа (a, b).
-// У исполнителя есть две команды
-// - команда 1 (к1): увеличить в с раза, а умножается на c
-// - команда 2 (к2): увеличить на d, к a прибавляется d
-// написать программу, которая выдаёт набор команд, позволяющий число a превратить в число b или сообщить, что это невозможно
-// Пример 1: а = 1, b = 7, c = 2, d = 1
-// ответ: к2, к2, к2, к2, к2, к2, k2 или к1, к1, к2, к2, к2 
-// Пример 2: а = 11, b = 7, c = 2, d = 1
-// ответ: нет решения. 
-// *Подумать над тем, как сделать минимальное количество команд
+// Реализовать функцию возведения числа а в степень b. a, b ∈ Z. Сводя количество выполняемых действий к минимуму.
+// Пример 1: а = 3, b = 2, ответ: 9
+// Пример 2: а = 2, b = -2, ответ: 0.25
+// Пример 3: а = 3, b = 0, ответ: 1
+// Пример 4: а = 0, b = 0, ответ: не определено //??? любое число в нулевой степени = 1
+// Пример 5
+// входные данные находятся в файле input.txt в виде
+// b 3
+// a 10
+// Результат нужно сохранить в файле output.txt
+
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
- * App
+ * Homework01_Task01
  */
 public class Homework01_Task01 {
-
-  static int[] solve(int start, int end, int k1, int k2) {
-    int[] ways = new int[end + 1];
-    if (start < end) {
-      ways[start] = 1;
-
-      for (int index = start + k2; index <= end; index++) {
-        if (index % k1 == 0) {
-          ways[index] = ways[index - k2] + ways[index / k1];
-        } else {
-          ways[index] = ways[index - k2];
-        }
-      }
-    }
-
-    return ways;
-  }
-
-  static String elems(int[] arr, int start, int k1, int k2) {
-    String s = "";
-    if (arr[arr.length - 1] != 0) {
-      int i = arr.length - 1;
-      while (i >= start) {
-        if (i % k1 == 0 && i / k1 >= start && arr[i / k1] != 0) {
-          s = String.format(" * %d", k1) + s;
-          i /= k1;
-        } else if (i - k2 >= start && arr[i - k2] != 0) {
-          s = String.format(" + %d", k2) + s;
-          i -= k2;
-        } else {
-          break;
-        }
-      }
-    } else {
-      s = "";
-    }
-    return s;
-  }
-
-  static String preprint(int start, int end, int k1, int k2) {
-    String s = elems(solve(start, end, k1, k2), start, k1, k2);
-    s = s.length() != 0 ? start + s + " = " + end : "Нет решений";
-    return s;
-  }
-
   public static void main(String[] args) {
-    System.out.println(preprint(1, 7, 2, 1));
+    int a = 3;
+    int b = 2;
+    printRes(myPow(a, b));
+
+    a = 2;
+    b = -2;
+    printRes(myPow(a, b));
+
+    a = 3;
+    b = 0;
+    printRes(myPow(a, b));
+
+    a = 3;
+    b = 0;
+    printRes(myPow(a, b));
+
+    int[] nums = readFile();
+    double res = myPow(nums[0], nums[1]);
+    if (res % 1 != 0)
+      writeFile(Double.toString(res));
+    else
+      writeFile(Integer.toString((int) res));
+  }
+
+  static double myPow(int num, int deg) {
+    double result = 1;
+    boolean isNegative = deg < 0 ? true : false;
+    deg = Math.abs(deg);
+
+    while (deg > 0) {
+      if (deg % 2 == 0) {
+        deg /= 2;
+        num *= num;
+      } else {
+        deg--;
+        result *= num;
+      }
+    }
+
+    if (isNegative)
+      result = 1 / result;
+
+    return result;
+  }
+
+  static int[] readFile() {
+    int[] arr = new int[2];
+    try {
+      FileReader fr = new FileReader("input.txt");
+      BufferedReader reader = new BufferedReader(fr);
+
+      int i = 0;
+
+      String line = reader.readLine();
+      while (line != null) {
+        arr[i] = Integer.parseInt(line.substring(2).trim());
+        line = reader.readLine();
+        i++;
+      }
+      fr.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return arr;
+  }
+
+  static void writeFile(String str) {
+    try (FileWriter fw = new FileWriter("output.txt", false)) {
+      fw.write(str);
+      fw.flush();
+    } catch (IOException ex) {
+      System.out.println(ex.getMessage());
+    }
+  }
+
+  static void printRes(double num) {
+    if (num % 1 != 0)
+      System.out.println(num);
+    else
+      System.out.println((int) num);
   }
 }
