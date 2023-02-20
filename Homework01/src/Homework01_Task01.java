@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import static java.lang.Math.abs;
-
 /**
  * Вычислить n-ое треугольное число (сумма чисел от 1 до n) и n! (произведение чисел от 1 до n).
  * */
