@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import static java.lang.Math.abs;
+
 /**
  * Вычислить n-ое треугольное число (сумма чисел от 1 до n) и n! (произведение чисел от 1 до n).
  * */
@@ -11,26 +13,24 @@ public class Homework01_Task01 {
     }
 
     private static int getNumber() {
-        int number;
+        int number = 0;
+        boolean isNumberPositive = false;
 
-        while (true) {
+        while (!isNumberPositive) {
             Scanner input = new Scanner(System.in);
             System.out.print("\nВведите целое положительное число: ");
             String selectNumber = input.nextLine();
             try{
                 number = Integer.parseInt(selectNumber);
-
-                break;
+                if (number <= 0) {
+                    System.out.println("Нужно ввести положительное число");
+                } else {
+                    isNumberPositive = true;
+                }
             } catch (NumberFormatException ex){
                 System.out.println(selectNumber + " не является целым числом");
             }
         }
-
-        if (number <= 0) {
-            System.out.println("Нужно ввести положительное число");
-            getNumber();
-        }
-
         return number;
     }
 
