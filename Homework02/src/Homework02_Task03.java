@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Студент Петрова получил 4 по предмету Информатика.
  * Студент Краснов получил 5 по предмету Физика.
  */
-public class Homework03_Task03 {
+public class Homework02_Task03 {
     public static void main(String[] args) {
         String textFromFile = readFile("./Task03Start");
         System.out.println("Текст из файла:\n" + textFromFile);
