@@ -1,4 +1,4 @@
-# Homework01. Problems
+# Java.Homework01. Problems
 
 **Homework01_Task01.** Вычислить n-ое треугольное число(сумма чисел от 1 до n) и n! (произведение чисел от 1 до n).
 
