@@ -74,6 +74,7 @@ public class Main {
     }
 
     private static Map<Integer, String> getListCriteria(List<Notebook> list, String str) {
+        int j = 1;
         switch (str) {
             case "Бренд":
                 Set<String> brandList = new TreeSet<>();
@@ -81,7 +82,6 @@ public class Main {
                     brandList.add(brand.getBrand());
                 }
                 Map<Integer, String> brandMap = new HashMap<>();
-                int j = 1;
                 for (String brand: brandList) {
                     brandMap.put(j, brand);
                     j++;
@@ -93,10 +93,9 @@ public class Main {
                     sizeList.add(size.getScreenSize());
                 }
                 Map<Integer, String> sizeMap = new HashMap<>();
-                int k = 1;
                 for (double size: sizeList) {
-                    sizeMap.put(k, String.format("%.1f", size));
-                    k++;
+                    sizeMap.put(j, String.format("%.1f", size));
+                    j++;
                 }
                 return sizeMap;
         }

@@ -4,14 +4,14 @@ public class Notebook {
     private String brand;
     private String cpu;
     private String model;
-    private double price;
+    private int price;
     private int ram;
     private int rom;
     private double screenSize;
     private String typeRam;
     private String typeRom;
 
-    public Notebook(String brand, String cpu, String model, double price, int ram, int rom, double screenSize, String typeRam, String typeRom) {
+    public Notebook(String brand, String cpu, String model, int price, int ram, int rom, double screenSize, String typeRam, String typeRom) {
         this.brand = brand;
         this.cpu = cpu;
         this.model = model;
@@ -41,7 +41,7 @@ public class Notebook {
 
 
     public String printInfo(){
-        System.out.printf("%s %s, Процессор: %s, Диагональ: %f, RAM: %d %s, Жесткий диск: %d %s\nЦена: %f у.е.", brand, model, cpu, screenSize, ram, typeRam, rom, typeRom, price);
-        return ".";
+        System.out.printf("%s %s,\nПроцессор: %s,\nДиагональ: %.1f дюймов,\nRAM: %dGb %s,\nЖесткий диск: %dGb %s,\nЦена: %d у.е.\n", brand, model, cpu, screenSize, ram, typeRam, rom, typeRom, price);
+        return " ";
     }
 }
