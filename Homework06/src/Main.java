@@ -40,42 +40,6 @@ public class Main {
                 break;
         }
 
-
-//        Set<String> unique = new TreeSet<>();
-//        for (Notebook i: notebooks) {
-//            unique.add(i.getBrand());
-//        }
-//
-//
-//        System.out.println(unique);
-//
-//        List<Notebook> notebookList = List.of(ChuwiAH401, SamsungS101, SamsungS150, AsusTUF504, AsusTUF555);
-//
-//        Scanner scannerUser = new Scanner(System.in);
-//        System.out.println("Выберите параметр для поиска, где:\n1 - по цвету\n2 - по бренду");
-//        int choiceUserSearch = scannerUser.nextInt();
-//        Scanner scannerRequestUserForSearch = new Scanner(System.in);
-//        System.out.println("Напишите интересующий цвет или бренд: ");
-//        String requestUserForSearch = scannerRequestUserForSearch.nextLine();
-//
-//        if (choiceUserSearch == 1) {
-//            for (Notebook color : notebookList) {
-//                if (color.getColor().equalsIgnoreCase(requestUserForSearch)) {
-//                    System.out.println(color.printInfo());
-//                }
-//            }
-//
-//        } else if (choiceUserSearch == 2){
-//            for (Notebook brand : notebookList) {
-//                if (brand.getBrand().equalsIgnoreCase(requestUserForSearch)) {
-//                    System.out.println(brand.printInfo());
-//                }
-//            }
-//        } else {
-//            System.out.println("Ошибка.\nВыберите параметр для поиска, где:\n1 - по цвету\n2 - по бренду");
-//        }
-//
-//        scannerUser.close();
     }
 
     private static List createNotebooksList() {
