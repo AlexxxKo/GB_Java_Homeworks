@@ -42,7 +42,7 @@ public class Main {
 
     }
 
-    private static List createNotebooksList() {
+    private static List<Notebook> createNotebooksList() {
         List<Notebook> notebooks = new ArrayList<>();
         notebooks.add(new Notebook("Lenovo", "Intel Pentium Gold 7505", "IdeaPad 3 14ITL6 Sand Gold", 8, 8, 512, 14, "DDR4", "SSD"));
         notebooks.add(new Notebook("Huawei", "Intel Core i5-12450H", "MateBook D16 53013DLC Space Gray", 15, 8, 512, 16, "DDR4", "SSD"));
